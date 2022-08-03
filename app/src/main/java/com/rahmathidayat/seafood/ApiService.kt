@@ -12,8 +12,8 @@ interface ApiService {
     @GET(FILTER)
     fun listSeaFood(@Query("c") category: String): Call<List<ModelFood>>
 
-    @GET("posts/3")
-    suspend fun getList(): Post
+    @GET("posts/4")
+    suspend fun getList(): Response<Post>
 
     @GET("/comments")
     fun getComment(): Response<List<Comments>>

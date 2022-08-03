@@ -36,6 +36,9 @@ android {
                 '-Xjvm-default=enable'
         ]
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {

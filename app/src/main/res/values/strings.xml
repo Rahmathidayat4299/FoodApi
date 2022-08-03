@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SeaFood</string>
+    <string name="hello_api">Hello Api</string>
 </resources>
