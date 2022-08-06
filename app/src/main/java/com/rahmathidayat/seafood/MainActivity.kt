@@ -28,17 +28,13 @@ class MainActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[MainVM::class.java]
-        viewModel.getPost()
-        viewModel.dataPost.observe(this) { response ->
-           if (response.isSuccessful){
-
-               Log.d("Response", response.body()?.userId.toString())
-               Log.d("Response", response.body()?.id.toString())
-               Log.d("Response", response.body()?.title!!)
-               binding.tvApi.text = response.body()?.title!!
-               Log.d("Response", response.body()?.body!!)
-           }
+        val list = viewModel.getUser("seafood")
+        viewModel.getUser("seafood").observe(this){
+            if (it.isNotEmpty()){
+                binding.tvApi.text = it.toString()
+            }
         }
+        Log.d("foodList", list.toString())
 
 
     }
