@@ -34,6 +34,7 @@
             style="@style/textView"
             android:layout_margin="8dp"
             android:text="username"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,19 +45,13 @@
             android:id="@+id/name"
             style="@style/textView"
             android:layout_margin="8dp"
+            android:textColor="@color/white"
             android:text="name"
             app:layout_constraintEnd_toEndOf="@id/username"
             app:layout_constraintStart_toStartOf="@id/username"
             app:layout_constraintTop_toBottomOf="@id/username" />
 
-        <!--            <TextView-->
-        <!--                android:id="@+id/html_url"-->
-        <!--                style="@style/textView"-->
-        <!--                android:layout_margin="8dp"-->
-        <!--                android:text="html"-->
-        <!--                app:layout_constraintEnd_toEndOf="@id/username"-->
-        <!--                app:layout_constraintStart_toStartOf="@id/username"-->
-        <!--                app:layout_constraintTop_toBottomOf="@id/name"/>-->
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
