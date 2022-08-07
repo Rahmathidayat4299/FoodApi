@@ -1,24 +1,20 @@
-package com.rahmathidayat.seafood
+package com.rahmathidayat.seafood.ui
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.rahmathidayat.post.MainVM
-import com.rahmathidayat.post.Repository
-import com.rahmathidayat.post.Retrofit
-import com.rahmathidayat.post.ViewModelFactory
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.rahmathidayat.seafood.viewmodel.MainVM
+import com.rahmathidayat.consumeapp.Repository
+import com.rahmathidayat.seafood.viewmodel.ViewModelFactory
+import com.rahmathidayat.consumeapp.AdapterFood
 import com.rahmathidayat.seafood.databinding.ActivityMainBinding
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
-@DelicateCoroutinesApi
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainVM
+    private lateinit var adapterFood : AdapterFood
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +24,18 @@ class MainActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[MainVM::class.java]
-        val list = viewModel.getUser("seafood")
-        viewModel.getUser("seafood").observe(this){
-            if (it.isNotEmpty()){
-                binding.tvApi.text = it.toString()
+        adapterFood = AdapterFood()
+        binding.recyclerView.apply {
+            adapter = adapterFood
+            layoutManager = LinearLayoutManager(this@MainActivity,LinearLayoutManager.VERTICAL,false)
+        }
+
+        viewModel.listSeaFood("seafood").observe(this){
+            if (it != null){
+                adapterFood.differ.submitList(it)
             }
         }
-        Log.d("foodList", list.toString())
+
 
 
     }

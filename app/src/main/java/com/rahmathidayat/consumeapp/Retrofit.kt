@@ -1,7 +1,6 @@
-package com.rahmathidayat.post
+package com.rahmathidayat.consumeapp
 
-import com.rahmathidayat.seafood.ApiService
-import com.rahmathidayat.seafood.Constan.BASE_URL
+import com.rahmathidayat.consumeapp.Constan.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
