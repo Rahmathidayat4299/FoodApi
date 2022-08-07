@@ -1,23 +1,18 @@
 package com.rahmathidayat.seafood.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class MealX(
-    @SerializedName("dateModified")
-    val dateModified: Any,
     @SerializedName("idMeal")
     val idMeal: String,
     @SerializedName("strArea")
     val strArea: String,
     @SerializedName("strCategory")
     val strCategory: String,
-    @SerializedName("strCreativeCommonsConfirmed")
-    val strCreativeCommonsConfirmed: Any,
-    @SerializedName("strDrinkAlternate")
-    val strDrinkAlternate: Any,
-    @SerializedName("strImageSource")
-    val strImageSource: Any,
     @SerializedName("strIngredient1")
     val strIngredient1: String,
     @SerializedName("strIngredient10")
@@ -32,18 +27,6 @@ data class MealX(
     val strIngredient14: String,
     @SerializedName("strIngredient15")
     val strIngredient15: String,
-    @SerializedName("strIngredient16")
-    val strIngredient16: Any,
-    @SerializedName("strIngredient17")
-    val strIngredient17: Any,
-    @SerializedName("strIngredient18")
-    val strIngredient18: Any,
-    @SerializedName("strIngredient19")
-    val strIngredient19: Any,
-    @SerializedName("strIngredient2")
-    val strIngredient2: String,
-    @SerializedName("strIngredient20")
-    val strIngredient20: Any,
     @SerializedName("strIngredient3")
     val strIngredient3: String,
     @SerializedName("strIngredient4")
@@ -78,18 +61,9 @@ data class MealX(
     val strMeasure14: String,
     @SerializedName("strMeasure15")
     val strMeasure15: String,
-    @SerializedName("strMeasure16")
-    val strMeasure16: Any,
-    @SerializedName("strMeasure17")
-    val strMeasure17: Any,
-    @SerializedName("strMeasure18")
-    val strMeasure18: Any,
-    @SerializedName("strMeasure19")
-    val strMeasure19: Any,
     @SerializedName("strMeasure2")
     val strMeasure2: String,
-    @SerializedName("strMeasure20")
-    val strMeasure20: Any,
+
     @SerializedName("strMeasure3")
     val strMeasure3: String,
     @SerializedName("strMeasure4")
@@ -104,10 +78,8 @@ data class MealX(
     val strMeasure8: String,
     @SerializedName("strMeasure9")
     val strMeasure9: String,
-    @SerializedName("strSource")
-    val strSource: Any,
     @SerializedName("strTags")
     val strTags: String,
     @SerializedName("strYoutube")
     val strYoutube: String
-)
+) : Parcelable

@@ -1,6 +1,7 @@
 package com.rahmathidayat.seafood
 
 import com.rahmathidayat.post.Post
+import com.rahmathidayat.seafood.model.Meal
 import com.rahmathidayat.seafood.model.ModelFood
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,6 +13,8 @@ interface ApiService {
 
     @GET("filter.php")
     suspend fun listSeaMeal(@Query("c") category: String): Response<ModelFood>
+    @GET("filter.php")
+    suspend fun listMeal(@Query("c") category: String): Response<ArrayList<Meal>>
 
     @GET("posts/4")
     suspend fun getList(): Response<Post>

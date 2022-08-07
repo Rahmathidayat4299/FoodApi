@@ -1,4 +1,4 @@
-package com.rahmathidayat.seafood
+package com.rahmathidayat.seafood.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rahmathidayat.post.MainVM
 import com.rahmathidayat.post.Repository
 import com.rahmathidayat.post.ViewModelFactory
+import com.rahmathidayat.seafood.AdapterFood
 import com.rahmathidayat.seafood.databinding.ActivityMainBinding
 
 
@@ -29,10 +30,13 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity,LinearLayoutManager.VERTICAL,false)
         }
 
-        viewModel.getUser("seafood").observe(this){
+        viewModel.listSeaFood("seafood").observe(this){
             if (it != null){
                 adapterFood.differ.submitList(it)
             }
         }
+
+
+
     }
 }

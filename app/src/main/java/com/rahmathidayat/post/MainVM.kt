@@ -7,12 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.rahmathidayat.seafood.model.Meal
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class MainVM(private val repository: Repository) : ViewModel() {
-//    val food: MutableLiveData<Response<ModelFood>> = MutableLiveData()
+//    val food: MutableLiveData<Response<ArrayList<Meal>>> = MutableLiveData()
 //    fun listFood(categori: String) {
 //        viewModelScope.launch {
-//            val response = repository.getListFood(categori)
+//            val response = repository.listFood(categori)
 //            food.value = response
 //        }
 //    }
@@ -33,9 +34,9 @@ class MainVM(private val repository: Repository) : ViewModel() {
 //        }
 //    }
     private val list = MutableLiveData<ArrayList<Meal>>()
-    fun getUser(categori: String): LiveData<ArrayList<Meal>> {
-        viewModelScope.launch(Dispatchers.IO) {
-            val food = Retrofit.api.listSeaFood(categori)
+    fun listSeaFood(categori: String): LiveData<ArrayList<Meal>> {
+        viewModelScope.launch {
+            val food = repository.getListFood(categori)
             try {
                 if (food.isSuccessful) {
                     list.postValue(food.body()?.meals as ArrayList<Meal>?)
